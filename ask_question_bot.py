@@ -1,11 +1,15 @@
-import telegram
+# import telegram
 from telegram import Bot
+from asyncio import run
+
+from settings import TELEGRAM_CHAT_ID, TELEGRAM_TOKEN
 
 
-TELEGRAM_TOKEN = '5794466732:AAGDZ5-pUAVx9aMeZXGev-uIUMggUdGBL30'
-TELEGRAM_CHAT_ID = '5386940741'
+async def main() -> None:
+    bot = Bot(token=TELEGRAM_TOKEN)
+    message = 'Hi'
+    await bot.send_message(TELEGRAM_CHAT_ID, message)
 
 
-def main() -> None:
-    bot = telegram.Bot(token=TELEGRAM_TOKEN)
-    bot.send_message(TELEGRAM_CHAT_ID, 'message')
+if __name__ == '__main__':
+    run(main())
